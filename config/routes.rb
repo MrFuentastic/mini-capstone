@@ -1,3 +1,4 @@
 Rails.application.routes.draw do
-  get '/organs_url' => 'organs#organs_action'
+  get '/organs' => 'organs#index'
+  get '/organs/:id' => 'organs#show'
 end

@@ -1,6 +1,10 @@
 class OrgansController < ApplicationController
-  def organs_action
+  def index
     @organs = Organ.all
-    render 'organs_page.html.erb'
   end
+
+  def show
+    @organ = Organ.find(params[:id])
+  end
+
 end
