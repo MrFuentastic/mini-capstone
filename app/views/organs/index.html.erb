@@ -3,8 +3,4 @@
 
 <% @organs.each do |organ| %>
   <a href="/organs/<%= organ.id %>"><h3><%= organ.name %></h3></a>
-  <h4><%= organ.price %></h4>
-  <img class=img_product src="<%= organ.image %>">
-  <h4><%= organ.description %></h4>
-  <br>
 <% end %>
