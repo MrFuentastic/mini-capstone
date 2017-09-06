@@ -2,3 +2,6 @@
   <h4><%= @organ.price %></h4>
   <img class=img_product src="<%= @organ.image %>">
   <h4><%= @organ.description %></h4>
+
+  <a href="/organs/<%= @organ.id %>/edit"><input class="btn btn-warning" type="submit" name="" value="Edit Item"></a>
+  <%= link_to "Delete Item", "/organs/#{@organ.id}", method: :delete, class: "btn btn-danger" %>

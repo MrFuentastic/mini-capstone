@@ -1,0 +1,16 @@
+<%= form_tag "/organs/#{@organ.id}", method: :patch do %>
+  <div>
+    Name:<input type="text" name="name" value="<%= @organ.name%>">
+  </div>
+  <div>
+    Price:<input type="text" name="price" value="<%= @organ.price%>">
+  </div>
+  <div>
+    Image link:<input type="text" name="image" value="<%= @organ.image%>">
+  </div>
+  <div>
+    Description:<input type="text" name="description" value="<%= @organ.description%>">
+  </div>
+  <br>
+  <input class="btn btn-warning" type="submit" name="" value="Sub">
+<% end %>
