@@ -14,6 +14,7 @@ class OrgansController < ApplicationController
                       description: params[:description]
                       )
     organ.save
+    flash[:success] = "Item Added"
     redirect_to "/organs/#{organ.id}"
   end
 
@@ -34,12 +35,14 @@ class OrgansController < ApplicationController
                               description: params[:description]
                               )
     organ.save
+    flash[:info] = "Item Updated"
     redirect_to "/organs/#{organ.id}"
   end
 
   def destroy
     organ = Organ.find(params[:id])
     organ.destroy
+    flash[:danger] = "Item deleted. :("
     redirect_to "/organs/"
   end
 

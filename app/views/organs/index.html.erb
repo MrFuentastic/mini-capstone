@@ -2,5 +2,10 @@
 <h2>Below is a list of everything currently in stock</h2>
 
 <% @organs.each do |organ| %>
-  <a href="/organs/<%= organ.id %>"><h3><%= organ.name %></h3></a>
+  <div class="col-md-4 product-index-single">
+    <div class="well">
+      <a href="/organs/<%= organ.id %>"><h3><%= organ.name %></h3></a>
+      <img src="<%= organ.image%>">
+    </div>
+  </div>
 <% end %>
