@@ -1,27 +1,17 @@
-<%= form_tag '/organs', method: :post do %>
-  <h4>Name:</h4><input type='text' name='name'>
-  <h4>Price:</h4><input type='text' name='price'>
-  <h4>Image link:</h4><input type='text' name='image'>
-  <h4>Description:</h4><input type='text' name='description'>  
-  <div><input type='submit' value='Add item'></div>
-<% end %>
-
-
-
-<%= form_tag '/organs', method: :post do %>
+<%= form_tag "/organs", method: :post do %>
   <div class="form-group">
     <label for="productName">Product Name:</label>
-    <input type="text" class="form-control" id="productName" placeholder="Name">
+    <input type="text" class="form-control" id="productName" name="name">
   </div>
   <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+    <label for="productPrice">Product Price:</label>
+    <input type="text" class="form-control" id="productPrice" name="price">
   </div>
   <div class="form-group">
-    <label for="exampleInputFile">File input</label>
-    <input type="file" id="exampleInputFile">
-    <p class="help-block">Example block-level help text here.</p>
+    <label for="imageLink">Image Link:</label>
+    <input type="text" class="form-control" id="imageLink" name="image">
   </div>
-  <textarea class="form-control" rows="3"></textarea>
+  <label for="descriptionBox">Description:</label>
+  <textarea class="form-control" id="descriptionBox" rows="3" name="description"></textarea>
   <button type="submit" class="btn btn-default">Submit</button>
 <% end %>
