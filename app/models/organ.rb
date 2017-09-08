@@ -1,7 +1,11 @@
 class Organ < ApplicationRecord
 
   def sale_message
-    price < 2 ? "Discount Item!" : "Everyday Value!"
+    discounted? ? "Discount Item!" : "Everyday Value!"
+  end
+
+  def discounted?
+    price < 50
   end
 
   def tax

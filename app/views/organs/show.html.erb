@@ -1,8 +1,8 @@
 <h3><%= @organ.name %></h3>
   <h4><%= @organ.sale_message %></h4>
-  <h4>Price: <%= @organ.price %></h4>
-  <h4>Tax: <%= @organ.tax %></h4>
-  <h4>Total: <%= @organ.total %></h4>
+  <h4 class="<%= "red-price" if @organ.discounted? %>">Price: <%= number_to_currency(@organ.price) %></h4>
+  <h4>Tax: <%= number_to_currency(@organ.tax) %></h4>
+  <h4>Total: <%= number_to_currency(@organ.total) %></h4>
   <img class=img_product src="<%= @organ.image %>">
   <h4><%= @organ.description %></h4>
 
