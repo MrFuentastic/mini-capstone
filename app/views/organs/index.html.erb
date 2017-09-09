@@ -1,6 +1,8 @@
 <h1>Welcome to my product page!</h1>
-<h2>Below is a list of everything currently in stock</h2>
 
+<% if @organs.blank? %>
+  <h3> There are no items that match "<%= params[:search] %>".<h3>
+<% end %>
 <% @organs.each do |organ| %>
   <div class="col-md-4 product-index-single">
     <div class="well">

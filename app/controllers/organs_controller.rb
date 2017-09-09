@@ -1,6 +1,10 @@
 class OrgansController < ApplicationController
   def index
+    if params[:search]
+    @organs = Organ.search(params[:search])
+    else
     @organs = Organ.all
+    end
   end
 
   def new
