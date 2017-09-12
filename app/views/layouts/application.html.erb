@@ -24,11 +24,11 @@
     </div>
 
     <!-- A bunch of buttons that I dont currently need that came with the navbar.. -->
-    <!-- <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="/organs">Home<span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Link</a></li>
-        <li class="dropdown">
+        <li class="active"><a href="/organs/?disc=2">Clearance!<span class="sr-only">(current)</span></a></li>
+    <li><a href="/organs/<%= Organ.random_organ %>">Random Product!</a></li>
+<!--      <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="#">Action</a></li>
@@ -39,8 +39,8 @@
             <li role="separator" class="divider"></li>
             <li><a href="#">One more separated link</a></li>
           </ul>
-        </li>
-      </ul> -->
+        </li> -->
+      </ul>
 
       <ul class="nav navbar-nav navbar-right">
       <div class="navbar-form navbar-left">
@@ -55,6 +55,10 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="/organs/new">New Item</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="/organs/?sort=name">Sort by name</a></li>
+            <li><a href="/organs/?sort=price&dir=asc">Sort by lowest price</a></li>
+            <li><a href="/organs/?sort=price&dir=desc">Sort by highest price</a></li>            
             <li role="separator" class="divider"></li>
             <li><a href="#">Contact Us!</a></li>
           </ul>

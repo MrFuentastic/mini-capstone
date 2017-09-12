@@ -1,4 +1,14 @@
 class Organ < ApplicationRecord
+
+  def self.random_organ
+    organ = Organ.all
+    id_array = []
+    organ.each do |org|
+      id_array << org[:id]
+    end
+    id_array.sample
+  end
+
   def self.search(search)
     where("name ILIKE ? OR description ILIKE ?", "%#{search}%", "%#{search}%")
   end

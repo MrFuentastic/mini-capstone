@@ -1,9 +1,21 @@
 class OrgansController < ApplicationController
+
   def index
+
     if params[:search]
-    @organs = Organ.search(params[:search])
+      @organs = Organ.search(params[:search])
     else
-    @organs = Organ.all
+      @organs = Organ.all
+      sort_attribute = params[:sort]
+      sort_direction = params[:dir]
+      discount = params[:disc]
+      if discount
+        @organs = @organs.where("price < ?", discount)
+      end
+
+      if sort_attribute
+        @organs = @organs.order(sort_attribute => sort_direction)
+      end
     end
   end
 
