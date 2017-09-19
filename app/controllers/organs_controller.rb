@@ -20,6 +20,7 @@ class OrgansController < ApplicationController
   end
 
   def new
+    @suppliers = Supplier.all    
   end
 
   def create
@@ -39,6 +40,7 @@ class OrgansController < ApplicationController
   end
 
   def edit
+    @suppliers = Supplier.all    
     @organ = Organ.find(params[:id])
   end
 
