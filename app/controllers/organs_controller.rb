@@ -8,9 +8,15 @@ class OrgansController < ApplicationController
       @organs = Organ.all
       sort_attribute = params[:sort]
       sort_direction = params[:dir]
+      category_id = params[:cat]
       discount = params[:disc]
       if discount
         @organs = @organs.where("price < ?", discount)
+      end
+
+      if category_id
+        category = Category.find_by(id: category_id)
+        @organs = category.organs
       end
 
       if sort_attribute

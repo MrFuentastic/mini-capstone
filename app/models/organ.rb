@@ -2,6 +2,8 @@ class Organ < ApplicationRecord
     has_many :images
     belongs_to :supplier
     has_many :orders
+    has_many :organ_categories
+    has_many :categories, through: :organ_categories
   # def supplier
   #   # Supplier.find_by(id: supplier_id)
   # end

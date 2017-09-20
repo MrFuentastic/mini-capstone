@@ -5,6 +5,9 @@
 <h4>Total: <%= number_to_currency(@organ.total) %></h4>
 <img class=img_product src="<%= @organ.image %>">
 <h4><%= @organ.description %></h4>
+<% @organ.categories.each do |cat| %>
+  <h4><%= cat.name %></h4>
+<% end %>
 
 <a href="/organs/<%= @organ.id %>/edit"><input class="btn btn-warning" type="submit" name="" value="Edit Item"></a>
 <%= link_to "Delete Item", "/organs/#{@organ.id}", method: :delete, class: "btn btn-danger" %>
