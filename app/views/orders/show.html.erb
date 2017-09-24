@@ -1,2 +1,8 @@
-<h1> Your reference number is <%= @order.id %> <h1>
+<h1>Thanks <%= @order.user.email %>!</h1>
+<h2>You just ordered <%= @order.organ.name %></h2>
+<h2> Your reference number is <%= @order.id %> <h2>
 <h2> You ordered this many: <%= @order.quantity %>
+<h2><%= @order.subtotal%></h2>
+<h2><%= @order.tax %></h2>
+<h2><%= @order.total %></h2>
+<img src="<%= @order.organ.images.first.url %>" alt="">

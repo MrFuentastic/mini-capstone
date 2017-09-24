@@ -1,9 +1,37 @@
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <div class="item active">
+      <img class="carousel-image" src="<%= @organ.images[0].url %>" alt=""> 
+    </div>
+    <% @organ.images.each do |image| %>
+      <% if image != @organ.images[0] %>
+        <div class="item">
+          <img class="carousel-image" src="<%= image.url %>" alt="">
+        </div>            
+      <% end %>
+    <% end %>
+  </div>
+
+  <!-- Left and right controls -->
+  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+
 <h3><%= @organ.name %></h3>
 <h4><%= @organ.sale_message %></h4>
 <h4 class="<%= "red-price" if @organ.discounted? %>">Price: <%= number_to_currency(@organ.price) %></h4>
 <h4>Tax: <%= number_to_currency(@organ.tax) %></h4>
 <h4>Total: <%= number_to_currency(@organ.total) %></h4>
-<img class=img_product src="<%= @organ.image %>">
 <h4><%= @organ.description %></h4>
 <% @organ.categories.each do |cat| %>
   <h4><%= cat.name %></h4>
@@ -20,5 +48,6 @@
   <div>
     Quantity: <input type="text" name="quantity">
   </div>
+  <input type="hidden" name="organ_id" value="<%= @organ.id %>">
   <input type="submit" value="Buy Now">
 <% end %>

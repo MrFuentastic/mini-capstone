@@ -7,7 +7,11 @@
   <div class="col-md-4 product-index-single">
     <div class="well">
       <a href="/organs/<%= organ.id %>"><h3><%= organ.name %></h3></a>
-      <img src="<%= organ.image%>">
+      <img src="<%= organ.images.first.url%>">
+
+
+
+
     </div>
   </div>
 <% end %>

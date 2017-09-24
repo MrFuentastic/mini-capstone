@@ -7,8 +7,8 @@
     <label for="descriptionBox">Organ:</label>
     <select class="form-control" name="organ_id">
     <% @organs.each do |organ| %>
-      <option value="organ.id"><%= organ.name %></option>
+      <option value="<%= organ.id %>"><%= organ.name %></option>
     <% end %>
   </div>
-  <button type="submit" class="btn btn-success" id="submit">Submit</button>
+  <input type="submit" value="Submit">
 <% end %>

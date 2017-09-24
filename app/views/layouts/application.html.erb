@@ -32,10 +32,10 @@
           <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user && current_user.name %><span class="caret"></span></a>
           <ul class="dropdown-menu">
             <% if current_user %>
-              <li><a href="#">Logout</a></li>
+              <li><a href="/logout">Logout</a></li>
             <% else %>
-              <li><a href="#">Create an account</a></li>
-              <li><a href="#">Login</a></li>              
+              <li><a href="/signup">Create an account</a></li>
+              <li><a href="/login">Login</a></li>              
             <% end %>
 
 

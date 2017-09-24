@@ -9,12 +9,11 @@ class ImagesController < ApplicationController
 
   def create
     image = Image.new(
-                      url: params[:url],
-                      organ_id: params[:organ_id]
+
                       )
     image.save
-    flash[:success] = "Item Added"
-    redirect_to "/images/#{image.id}"
+    flash[:success] = "Image Added"
+    redirect_to "/organs"
   end
 
   def show
@@ -32,7 +31,7 @@ class ImagesController < ApplicationController
                               )
     image.save
     flash[:info] = "Item Updated"
-    redirect_to "/images/#{image.id}"
+    redirect_to "/organ}"
   end
 
   def destroy

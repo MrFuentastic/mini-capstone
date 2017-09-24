@@ -33,12 +33,17 @@ class OrgansController < ApplicationController
     organ = Organ.new(
                       name: params[:name],
                       price: params[:price],
-                      image: params[:image],
                       description: params[:description]
                       )
     organ.save
+    image = Image.new(
+                        url: params[:url],
+                        organ_id: organ.id
+                        )
+
+    image.save
     flash[:success] = "Item Added"
-    redirect_to "/organs/#{organ.id}"
+    redirect_to "/organs"
   end
 
   def show
