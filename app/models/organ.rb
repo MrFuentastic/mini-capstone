@@ -1,7 +1,7 @@
 class Organ < ApplicationRecord
     has_many :images
     belongs_to :supplier
-    has_many :orders
+    has_many :carted_organs
     has_many :organ_categories
     has_many :categories, through: :organ_categories
   # def supplier

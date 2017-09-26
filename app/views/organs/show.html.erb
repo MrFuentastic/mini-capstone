@@ -43,11 +43,11 @@
 
 <h6>Supplier: <%= @organ.supplier.name %></h6>
 
-<h3>Checkout!</h3>
-<%= form_tag "/orders", method: :post do %>
+
+<%= form_tag "/cart", method: :post do %>
   <div>
     Quantity: <input type="text" name="quantity">
   </div>
   <input type="hidden" name="organ_id" value="<%= @organ.id %>">
-  <input type="submit" value="Buy Now">
+  <input type="submit" value="Add to Cart!">
 <% end %>

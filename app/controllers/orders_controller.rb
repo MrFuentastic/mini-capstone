@@ -1,17 +1,33 @@
 class OrdersController < ApplicationController
 
   def create
+    carts = CartedOrgan.where(user_id: current_user.id, status: "carted")
     order = Order.new(
-                          user_id: current_user.id,
-                          quantity: params[:quantity],
-                          organ_id: params[:organ_id]
-                        )
-    order.subtotal = order.organ.price * order.quantity
-    order.tax = order.organ.tax * order.quantity
-    order.total = order.organ.total * order.quantity
+                      user_id: current_user.id,
+                      )
     order.save
-    
-    flash[:success] = "You have successfully ordered that thing"
+
+    subtotals = 0
+    taxes = 0
+    totals = 0
+
+    carts.each do |item|
+      item.update(
+                  status: "ordered",
+                  order_id: order.id
+                  )
+      subtotals += item.subtotal
+      taxes += item.tax
+      totals += item.total
+    end
+
+    order.update(
+                  subtotal: subtotals,
+                  tax: taxes,
+                  total: totals
+    )
+
+    flash[:success] = "You have successfully ordered some stuff"
     redirect_to "/orders/#{order.id}"
   end
 

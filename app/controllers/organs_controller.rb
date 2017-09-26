@@ -33,7 +33,8 @@ class OrgansController < ApplicationController
     organ = Organ.new(
                       name: params[:name],
                       price: params[:price],
-                      description: params[:description]
+                      description: params[:description],
+                      supplier_id: params[:supplier_id]
                       )
     organ.save
     image = Image.new(

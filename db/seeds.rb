@@ -46,13 +46,19 @@
 # Supplier.create!(name:"Richard the resident",email:"rich@mercyhosp.com",phone:"555-555-5551")
 # Supplier.create!(name:"disgruntled orderly",email:"grumps@cchospital.com",phone:"555-555-5552")
 
-Category.create!(name: "Collectible")
-Category.create!(name: "Rare")
-Category.create!(name: "Common")
-Category.create!(name: "Useful")
+# Category.create!(name: "Collectible")
+# Category.create!(name: "Rare")
+# Category.create!(name: "Common")
+# Category.create!(name: "Useful")
 
-OrganCategory.create!(organ_id: 2,category_id: 1)
-OrganCategory.create!(organ_id: 2,category_id: 2)
-OrganCategory.create!(organ_id: 4,category_id: 3)
-OrganCategory.create!(organ_id: 4,category_id: 4)
-OrganCategory.create!(organ_id: 5,category_id: 3)
+# OrganCategory.create!(organ_id: 2,category_id: 1)
+# OrganCategory.create!(organ_id: 2,category_id: 2)
+# OrganCategory.create!(organ_id: 4,category_id: 3)
+# OrganCategory.create!(organ_id: 4,category_id: 4)
+# OrganCategory.create!(organ_id: 5,category_id: 3)
+
+Supplier.create!(
+                name: "The Butcher of Boko Village",
+                email: "heroofhyrule@hyrule.com",
+                phone: "???"
+)

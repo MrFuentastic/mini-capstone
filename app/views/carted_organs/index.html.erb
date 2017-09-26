@@ -1,0 +1,8 @@
+<% @cart.each do |item| %>
+  <h3><%= item.organ.name %></h3>
+  <h3><%= item.quantity %></h3>
+<% end %>
+
+<%= form_tag '/orders', method: :post do %>
+  <input type="submit" value="Buy it Now!">
+<% end %>

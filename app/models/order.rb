@@ -1,4 +1,4 @@
 class Order < ApplicationRecord
-  belongs_to :organ, optional: true
+  has_many :carted_organs
   belongs_to :user, optional: true
 end
