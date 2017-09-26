@@ -14,10 +14,4 @@ class CartedOrgan < ApplicationRecord
   def total
     subtotal + tax
   end
-
-  def calculate_totals
-    subtotal
-    tax
-    total
-  end
 end
