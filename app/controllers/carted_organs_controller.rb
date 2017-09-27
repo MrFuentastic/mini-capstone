@@ -1,4 +1,6 @@
 class CartedOrgansController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @cart = CartedOrgan.where(user_id: current_user.id, status: "carted")
   end

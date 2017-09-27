@@ -1,4 +1,5 @@
 class OrgansController < ApplicationController
+  before_action :authenticate_admin!, except: [:index, :show]
 
   def index
 
@@ -47,16 +48,16 @@ class OrgansController < ApplicationController
     redirect_to "/organs"
   end
 
-  def show
+  def show    
     @organ = Organ.find(params[:id])
   end
 
-  def edit
+  def edit    
     @suppliers = Supplier.all    
     @organ = Organ.find(params[:id])
   end
 
-  def update
+  def update    
     organ = Organ.find(params[:id])
     organ.assign_attributes(
                               name: params[:name],
@@ -69,7 +70,7 @@ class OrgansController < ApplicationController
     redirect_to "/organs/#{organ.id}"
   end
 
-  def destroy
+  def destroy    
     organ = Organ.find(params[:id])
     organ.destroy
     flash[:danger] = "Item deleted. :("

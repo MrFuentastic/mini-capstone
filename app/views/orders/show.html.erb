@@ -1,5 +1,5 @@
 <h1>Thanks <%= @order.user.email %>!</h1>
-<h2>You just ordered <%= @order.organ.name %></h2>
+<h2>Your ordered <%= @order.carted_organ.name %></h2>
 <h2> Your reference number is <%= @order.id %> <h2>
 <h2> You ordered this many: <%= @order.quantity %>
 <h2><%= @order.subtotal%></h2>
