@@ -28,24 +28,32 @@ class OrgansController < ApplicationController
 
   def new
     @suppliers = Supplier.all    
+    @organ = Organ.new
   end
 
   def create
-    organ = Organ.new(
+    @organ = Organ.new(
                       name: params[:name],
                       price: params[:price],
                       description: params[:description],
                       supplier_id: params[:supplier_id]
                       )
-    organ.save
+    @organ.save
     image = Image.new(
                         url: params[:url],
-                        organ_id: organ.id
+                        organ_id: @organ.id
                         )
-
     image.save
-    flash[:success] = "Item Added"
-    redirect_to "/organs"
+    
+    if @organ.save
+      flash[:success] = "Item Added"
+      redirect_to "/organs"
+    else
+      @suppliers = Supplier.all
+      @errors = @organ.errors.full_messages
+      flash[:danger] = "Product not saved, try again."
+      render "new.html.erb"
+    end
   end
 
   def show    
@@ -58,16 +66,21 @@ class OrgansController < ApplicationController
   end
 
   def update    
-    organ = Organ.find(params[:id])
-    organ.assign_attributes(
+    @organ = Organ.find(params[:id])
+    @organ.assign_attributes(
                               name: params[:name],
                               price: params[:price],
-                              image: params[:image],
                               description: params[:description]
                               )
-    organ.save
-    flash[:info] = "Item Updated"
-    redirect_to "/organs/#{organ.id}"
+    if @organ.save
+      flash[:info] = "Item Updated"
+      redirect_to "/organs/#{@organ.id}"
+    else
+      @suppliers = Supplier.all      
+      @errors = @organ.errors.full_messages
+      flash[:danger] = "Edits not saved"
+      render "edit.html.erb"
+    end
   end
 
   def destroy    

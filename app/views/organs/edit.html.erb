@@ -1,3 +1,9 @@
+<% if @errors %>
+  <% @errors.each do |error| %>
+    <p><%= error %></p>
+  <% end %>
+<% end %>
+
 <%= form_tag "/organs/#{@organ.id}", method: :patch do %>
   <div class="form-group">
     <label for="productName">Product Name:</label>
@@ -10,9 +16,9 @@
 <%# 
   <div class="form-group">
     <label for="imageLink">Image Link:</label>
-    <input type="text" class="form-control" id="imageLink" name="url" value="<%= @organ.images. %>">
-  </div>
-  %>
+    <input type="text" class="form-control" id="imageLink" name="url" value="<%= @organ.images. %>
+  <%# </div> %>
+
   <label for="descriptionBox">Description:</label>
   <textarea class="form-control" id="descriptionBox" rows="3" name="description"><%= @organ.description %></textarea>
 <!--   <label for="descriptionBox">Supplier:</label>

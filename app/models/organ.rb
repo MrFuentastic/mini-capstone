@@ -4,9 +4,12 @@ class Organ < ApplicationRecord
     has_many :carted_organs
     has_many :organ_categories
     has_many :categories, through: :organ_categories
-  # def supplier
-  #   # Supplier.find_by(id: supplier_id)
-  # end
+
+    validates :name, presence: true
+    validates :name, uniqueness: true
+    validates :price, presence: true
+    validates :price, numericality: true
+    validates :description, length: { in: 200..500 }
 
   def self.random_organ
     organ = Organ.all

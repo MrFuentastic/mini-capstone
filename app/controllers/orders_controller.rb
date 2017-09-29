@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_user!
 
   def create
     carts = CartedOrgan.where(user_id: current_user.id, status: "carted")
@@ -33,5 +34,6 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find_by(id: params[:id])
+    redirect to '/' unless current_user && current_user.id == @order.user_id
   end
 end

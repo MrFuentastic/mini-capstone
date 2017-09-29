@@ -37,17 +37,25 @@
   <h4><%= cat.name %></h4>
 <% end %>
 
-<a href="/organs/<%= @organ.id %>/edit"><input class="btn btn-warning" type="submit" name="" value="Edit Item"></a>
-<%= link_to "Delete Item", "/organs/#{@organ.id}", method: :delete, class: "btn btn-danger" %>
+
+<% if current_user && current_user.admin %>
+  <a href="/organs/<%= @organ.id %>/edit"><input class="btn btn-warning" type="submit" name="" value="Edit Item"></a>
+  <%= link_to "Delete Item", "/organs/#{@organ.id}", method: :delete, class: "btn btn-danger" %>
+<% end %>
 
 
 <h6>Supplier: <%= @organ.supplier.name %></h6>
 
 
-<%= form_tag "/cart", method: :post do %>
-  <div>
-    Quantity: <input type="text" name="quantity">
-  </div>
-  <input type="hidden" name="organ_id" value="<%= @organ.id %>">
-  <input type="submit" value="Add to Cart!">
+<% if current_user %>
+  <%= form_tag "/cart", method: :post do %>
+    <div>
+      Quantity: <input type="text" name="quantity">
+    </div>
+    <input type="hidden" name="organ_id" value="<%= @organ.id %>">
+    <input type="submit" value="Add to Cart!">
+  <% end %>
+<% else %>
+  <p>Please <a href="/login">log in</a> to purchase items.</p>  
 <% end %>
+
